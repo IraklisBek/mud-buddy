@@ -33,5 +33,32 @@
 /* Global css variables */
 :root {
     --main-color: #520d0d;
+    --error-color: #a34949;
     --black-color: #131313;
+    --my-gray: rgb(220, 224, 229);
+}
+
+.input-field {
+    font-size: 18px;
+    // padding: 20px 20px 0px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    .input-title {
+        color: var(--black-color);
+    }
+    .input {
+        margin-top: 10px;
+        color: var(--black-color);
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid var(--my-gray);
+        border-radius: 10px;
+        padding: 11px;
+        font-size: 18px;
+    }
+}
+
+.error {
+    color: var(--error-color);
+    padding: 5px;
 }

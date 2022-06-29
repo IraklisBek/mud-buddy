@@ -8,5 +8,32 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
+    <div class="input-field">
+      <input class="input" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email"
+        type="email">
+      <!-- Error messages for email -->
+      <div *ngIf="errorControl.email.touched">
+        <div *ngIf="errorControl.email.errors?.required" class="error">
+          Email is required
+        </div>
+        <div *ngIf="errorControl.email.errors?.pattern" class="error">
+          This is not a valid email
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <input class="input" formControlName="password" placeholder="Password" type="password">
+      <!-- Error messages for password -->
+      <div *ngIf="errorControl.password.touched">
+        <div *ngIf="errorControl.password.errors?.required" class="error">
+          Password is required
+        </div>
+      </div>
+    </div>
+
+    <button class="my-button main-button" type="submit">Login</button>
+  </form>
 </ion-content>
