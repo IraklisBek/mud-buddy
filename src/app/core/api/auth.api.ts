@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { LoginForm } from '../models/auth.model';
+import { LoginForm, RegisterForm } from '../models/auth.model';
 
 const BACKEND_URL = environment.apiUrl;
 @Injectable({
@@ -15,5 +15,9 @@ export class AuthApi {
 
     login(loginForm: LoginForm) {
         return this.http.post(`${BACKEND_URL}/auth/login`, loginForm)
+    }
+
+    register(registerForm: RegisterForm) {
+        return this.http.post(`${BACKEND_URL}/auth/register`, registerForm)
     }
 }

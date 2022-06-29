@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" style="display: block;">
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Register</ion-title>
@@ -8,5 +8,65 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
 
+    <div class="input-field">
+      <input class="input" formControlName="name" placeholder="Fullname" type="text">
+      <!-- Error messages for name -->
+      <div *ngIf="errorControl.name.touched">
+        <div *ngIf="errorControl.name.errors?.required" class="error">
+          Name is required
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <input class="input" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email"
+        type="email">
+      <!-- Error messages for email -->
+      <div *ngIf="errorControl.email.touched">
+        <div *ngIf="errorControl.email.errors?.required" class="error">
+          Email is required
+        </div>
+        <div *ngIf="errorControl.email.errors?.pattern" class="error">
+          This is not a valid email
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <input class="input" formControlName="password" placeholder="Password" type="password">
+      <!-- Error messages for password -->
+      <div *ngIf="errorControl.password.touched">
+        <div *ngIf="errorControl.password.errors?.required" class="error">
+          Password is required
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <input class="input" formControlName="confirm" placeholder="Confirm password" type="password">
+      <!-- Error messages for confirm -->
+      <div *ngIf="errorControl.confirm.touched">
+        <div *ngIf="errorControl.confirm.errors?.required" class="error">
+          Confirm password is required
+        </div>
+        <div *ngIf="passwordsMissmatch" class="error">
+          Passwords do not match
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field">
+      <input class="input" formControlName="organisation" placeholder="Organisation" type="text">
+      <!-- Error messages for organisation -->
+      <div *ngIf="errorControl.organisation.touched">
+        <div *ngIf="errorControl.organisation.errors?.required" class="error">
+          Organisation is required
+        </div>
+      </div>
+    </div>
+
+    <button class="my-button main-button" type="submit">Register</button>
+  </form>
 </ion-content>
