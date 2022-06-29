@@ -4,23 +4,23 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./menu/menu.module').then(m => m.MenuPageModule)
+    loadChildren: () => import('./modules/menu/menu.module').then(m => m.MenuPageModule)
   },
   {
     path: 'buildings',
-    loadChildren: () => import('./buildings/buildings.module').then( m => m.BuildingsPageModule)
+    loadChildren: () => import('./modules/buildings/buildings.module').then( m => m.BuildingsPageModule)
   },
   {
     path: 'search',
-    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+    loadChildren: () => import('./modules/search/search.module').then( m => m.SearchPageModule)
   },
   {
     path: 'notifications',
-    loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+    loadChildren: () => import('./modules/notifications/notifications.module').then( m => m.NotificationsPageModule)
   },
   {
     path: 'inbox',
-    loadChildren: () => import('./inbox/inbox.module').then( m => m.InboxPageModule)
+    loadChildren: () => import('./modules/inbox/inbox.module').then( m => m.InboxPageModule)
   }
 ];
 @NgModule({
