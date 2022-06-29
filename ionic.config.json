@@ -1,0 +1,7 @@
+{
+  "name": "mudBuddy",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
