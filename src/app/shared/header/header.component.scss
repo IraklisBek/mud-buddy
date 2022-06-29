@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    .header-title {
+        font-family: "Amatic SC", cursive;
+        color: var(--main-color);
+    }
+    img {
+        width: 30px;
+    }
+}
