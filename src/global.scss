@@ -26,9 +26,12 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 /* Font import */
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+
+@import url("../src/assets/css/buttons.scss");
 
 /* Global css variables */
 :root {
     --main-color: #520d0d;
+    --black-color: #131313;
 }

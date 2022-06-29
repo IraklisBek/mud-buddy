@@ -1,0 +1,21 @@
+.my-button {
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.main-button {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.black-link-button {
+    color: var(--black-color);
+}
+
+.main-link-button {
+    color: var(--main-color);
+    font-weight: bold;
+}

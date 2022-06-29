@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'inbox',
     loadChildren: () => import('./modules/inbox/inbox.module').then( m => m.InboxPageModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthPageModule)
   }
 ];
 @NgModule({
