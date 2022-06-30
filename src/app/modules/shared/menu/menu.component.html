@@ -1,0 +1,12 @@
+<div class="menu">
+  <div class="expand-arrow" (click)="toggleMenu()" #expand>
+    <img src="/assets/icons/expand.svg" id="expandArrowIcon">
+  </div>
+  <div class="menu-items" *ngIf="show" [@grow] id="menuItems">
+    <div class="item">LIST</div>
+    <div class="item">MAP</div>
+    <div class="item">EVENTS</div>
+    <div class="item">ORGANISATIONS</div>
+    <div class="item">LEGISLATION & NORMATIVES</div>
+  </div>
+</div>
