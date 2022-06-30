@@ -1,6 +1,11 @@
 <ion-tabs class="tabs" #tabs (ionTabsDidChange)="setCurrentTab()">
   <ion-tab-bar slot="bottom">
 
+    <ion-tab-button tab="home">
+      <img src="/assets/icons/{{homeIcon}}" class="tabs-icon">
+      <!-- <ion-label>Map</ion-label> -->
+    </ion-tab-button>
+
     <ion-tab-button tab="buildings" class="selected">
       <img src="/assets/icons/{{buildingsIcon}}" class="tabs-icon">
       <!-- <ion-label>Buildings</ion-label> -->

@@ -7,22 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'buildings',
-    loadChildren: () => import('./modules/buildings/buildings.module').then( m => m.BuildingsPageModule)
-  },
-  {
-    path: 'search',
-    loadChildren: () => import('./modules/search/search.module').then( m => m.SearchPageModule)
-  },
-  {
-    path: 'notifications',
-    loadChildren: () => import('./modules/notifications/notifications.module').then( m => m.NotificationsPageModule)
-  },
-  {
-    path: 'inbox',
-    loadChildren: () => import('./modules/inbox/inbox.module').then( m => m.InboxPageModule)
-  },
-  {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthPageModule)
   }

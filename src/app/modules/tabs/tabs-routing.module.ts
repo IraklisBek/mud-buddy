@@ -9,12 +9,16 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'map',
-        loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
+        path: 'home',
+        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
       {
         path: 'buildings',
         loadChildren: () => import('../buildings/buildings.module').then(m => m.BuildingsPageModule)
+      },
+      {
+        path: 'map',
+        loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
       },
       {
         path: 'search',
@@ -32,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/buildings',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];

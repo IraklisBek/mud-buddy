@@ -9,6 +9,7 @@ import { IonTabs } from '@ionic/angular';
 export class TabsPage implements OnInit {
   @ViewChild('tabs', { static: false }) tabs: IonTabs;
   selectedTab: string = "buildings";
+  homeIcon: string = "home-icon.svg"
   buildingsIcon: string = "list-icon-selected.svg"
   mapIcon: string = "map-icon.svg"
   searchIcon: string = "search-icon.svg"
@@ -26,6 +27,9 @@ export class TabsPage implements OnInit {
     this.setAllIconsToWhite();
     this.selectedTab = this.tabs.getSelected().toString();
     switch (this.selectedTab) {
+      case 'home':
+        this.homeIcon = "home-icon-selected.svg"
+        break;
       case 'buildings':
         this.buildingsIcon = "list-icon-selected.svg"
         break;
@@ -45,6 +49,7 @@ export class TabsPage implements OnInit {
   }
 
   setAllIconsToWhite() {
+    this.homeIcon = "home-icon.svg"
     this.buildingsIcon = "list-icon.svg"
     this.mapIcon = "map-icon.svg"
     this.searchIcon = "search-icon.svg"

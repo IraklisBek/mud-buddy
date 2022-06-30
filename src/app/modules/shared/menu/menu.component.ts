@@ -11,6 +11,8 @@ import { GeneralService } from 'src/app/core/services/general.service';
 })
 export class MenuComponent implements OnInit {
   @ViewChild('expand') expandRef: ElementRef;
+  @ViewChild('expandArrowIcon') expandArrowIconRef: ElementRef = {} as ElementRef;
+  @ViewChild('menuItems') menuItemsRef: ElementRef = {} as ElementRef;
 
   show: boolean = false;
   constructor(
@@ -32,7 +34,7 @@ export class MenuComponent implements OnInit {
 
   showMenu(show: boolean) {
     let rotateDegrees = show ? -180 : 0;
-    (document.querySelector("#expandArrowIcon") as HTMLElement).style.transform = `rotate(${rotateDegrees}deg)`;
+    this.expandArrowIconRef.nativeElement.style.transform = `rotate(${rotateDegrees}deg)`;
     this.generalService.growAnimationFullHeightHelper('menuItems', show, 250, 250)
   }
 
