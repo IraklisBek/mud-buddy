@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginForm } from 'src/app/core/models/auth.model';
 import { AuthApi } from '../../../core/api/auth.api'
 import { take } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { take } from 'rxjs/operators';
 export class LoginPage implements OnInit {
   loginForm: FormGroup = {} as FormGroup
   constructor(
+    private router: Router,
     private authApi: AuthApi
   ) { }
 
@@ -46,10 +48,11 @@ export class LoginPage implements OnInit {
       email: formValues.email,
       password: formValues.password
     }
-    this.authApi.login(loginForm)
-      .pipe(take(1))
-      .subscribe(res => {
-        console.log(res)
-      })
+    this.router.navigate(['/menu/buildings'])
+    // this.authApi.login(loginForm)
+    //   .pipe(take(1))
+    //   .subscribe(res => {
+    //     console.log(res)
+    //   })
   }
 }

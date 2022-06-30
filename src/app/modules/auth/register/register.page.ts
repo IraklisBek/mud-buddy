@@ -4,6 +4,7 @@ import { RegisterForm } from 'src/app/core/models/auth.model';
 import { AuthApi } from '../../../core/api/auth.api'
 import { take } from 'rxjs/operators';
 import { SubSink } from 'subsink';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +16,7 @@ export class RegisterPage implements OnInit {
   private subs = new SubSink();
   passwordsMissmatch: boolean = false;
   constructor(
+    private router: Router,
     private authApi: AuthApi
   ) { }
 
@@ -67,10 +69,11 @@ export class RegisterPage implements OnInit {
       password: formValues.password,
       organisation: formValues.organisation
     }
-    this.authApi.register(registerForm)
-      .pipe(take(1))
-      .subscribe(res => {
-        console.log(res)
-      })
+    this.router.navigate(['/auth/login'])
+    // this.authApi.register(registerForm)
+      // .pipe(take(1))
+      // .subscribe(res => {
+      //   console.log(res)
+      // })
   }
 }
