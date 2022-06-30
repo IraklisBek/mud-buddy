@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonTabs } from '@ionic/angular';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.page.html',
-  styleUrls: ['./menu.page.scss'],
+  selector: 'app-tabs',
+  templateUrl: './tabs.page.html',
+  styleUrls: ['./tabs.page.scss'],
 })
-export class MenuPage implements OnInit {
+export class TabsPage implements OnInit {
   @ViewChild('tabs', { static: false }) tabs: IonTabs;
   selectedTab: string = "buildings";
   buildingsIcon: string = "list-icon-selected.svg"

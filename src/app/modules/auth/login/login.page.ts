@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
       email: formValues.email,
       password: formValues.password
     }
-    this.router.navigate(['/menu/buildings'])
+    this.router.navigate(['/tabs/buildings'])
     // this.authApi.login(loginForm)
     //   .pipe(take(1))
     //   .subscribe(res => {

@@ -20,7 +20,7 @@ export class AuthService {
   */
   autoAuthUser() {
     if (this.isLoggedIn()) {
-      this.router.navigate(['/menu/buildings'])
+      this.router.navigate(['/tabs/buildings'])
     } else {
       this.router.navigate(['/auth'])
     }
