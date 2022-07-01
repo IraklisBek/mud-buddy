@@ -3,9 +3,70 @@
     <ion-buttons slot="start" style="display: block;">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="header-title">Add Building</ion-title>
+    <ion-title class="title">Add Building</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  
+  <form [formGroup]="addBuildingForm" (ngSubmit)="submitForm()" style="height:100%">
+    <app-upload-files></app-upload-files>
+<!-- 
+    <ion-slides (ionSlideNextStart)="onSlideNext()" (ionSlidePrevStart)="onSlidePrev()" [options]="slideOpts" #slides>
+      <ion-slide>
+        <div class="input-field">
+          <div class="input-title">
+            Please give a title
+          </div>
+          <input class="input" formControlName="title" placeholder="Title" type="text">
+          <div *ngIf="errorControl.title.touched || btnClicked">
+            <div *ngIf="errorControl.title.errors?.required" class="error">
+              Title is required
+            </div>
+          </div>
+        </div>
+        <div class="my-button main-button" (click)="nextStep('title')">
+          NEXT
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="input-field">
+          <div class="input-title">
+            Please give a short description
+          </div>
+          <textarea rows="3" class="input" formControlName="description" placeholder="Description" type="text"></textarea>
+          <div *ngIf="errorControl.description.touched || btnClicked">
+            <div *ngIf="errorControl.description.errors?.required" class="error">
+              Description is required
+            </div>
+          </div>
+        </div>
+        <div class="my-button main-button" (click)="nextStep('description')">
+          NEXT
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="input-field">
+          <div class="input-title">
+            Please give a few tags
+          </div>
+          <textarea rows="3" class="input" formControlName="tags" placeholder="Tag1, Tag2, Tag3, etc." type="text"></textarea>
+          <div *ngIf="errorControl.tags.touched">
+            <div *ngIf="errorControl.tags.errors?.required" class="error">
+              Tags are required
+            </div>
+          </div>
+        </div>
+        <div class="my-button main-button" (click)="nextStep('tags')">
+          NEXT
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="input-field">
+        </div>
+        <div class="my-button main-button" (click)="nextStep('tags')">
+          NEXT
+        </div>
+      </ion-slide>
+    </ion-slides> -->
+  </form>
 </ion-content>

@@ -9,6 +9,30 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then( m => m.AuthPageModule)
+  },
+  {
+    path: 'buildings',
+    loadChildren: () => import('./modules/buildings/buildings.module').then( m => m.BuildingsPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./modules/search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./modules/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'inbox',
+    loadChildren: () => import('./modules/inbox/inbox.module').then( m => m.InboxPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'map',
+    loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
   }
 ];
 @NgModule({

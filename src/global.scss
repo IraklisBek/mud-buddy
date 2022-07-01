@@ -27,8 +27,14 @@
 
 /* Font import */
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
+/* Buttons import */
 @import url("../src/assets/css/buttons.scss");
+
+html, body {
+    font-family: 'Amatic SC', cursive;
+}
 
 /* Global css variables */
 :root {
@@ -63,7 +69,7 @@
     padding: 5px;
 }
 
-.header-title {
+.title {
     font-family: "Amatic SC", cursive;
     color: var(--main-color);
     font-size: 23px;

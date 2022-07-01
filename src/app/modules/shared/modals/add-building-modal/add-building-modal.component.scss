@@ -1,0 +1,24 @@
+ion-slides {
+    min-height: 80%; // so we can swipe with fingers also. by default, the height is as much as the content of the ion-slider
+    height: 80%;
+}
+
+.swiper-slide {
+    flex-direction: column;
+}
+
+.error {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.input-field {
+    width: 100%;
+}
+
+.input-title {
+    padding: 10px;
+}
+// .swiper-zoom-container {
+//     text-align: start; // we do not want it centered, which is by default
+// }
