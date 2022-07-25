@@ -15,6 +15,8 @@ export class RegisterPage implements OnInit {
   registerForm: FormGroup = {} as FormGroup
   private subs = new SubSink();
   passwordsMissmatch: boolean = false;
+  btnClicked: boolean = false;
+
   constructor(
     private router: Router,
     private authApi: AuthApi
@@ -59,6 +61,7 @@ export class RegisterPage implements OnInit {
   }
 
   submitForm() {
+    this.btnClicked = true;
     if (this.registerForm.invalid) {
       return;
     }
