@@ -1,9 +1,7 @@
-<ion-button expand="full">
-  <ion-icon lazy="true" slot="start" name="image"></ion-icon>
-  <ion-label slot="end">Upload Image</ion-label>
-  <input type="file" multiple (change)="loadImageFromDevice($event)" id="file-input" accept="image/png, image/jpeg">
-</ion-button>
-
-<div *ngFor="let image of images">
-  <img [src]="image">
+<input type="file" id="file-input" (change)="loadImageFromDevice($event)" multiple accept="image/png, image/jpeg" />
+<label for="file-input" class="my-button main-link-button f-s-24">Upload Files</label>
+<div class="images">
+  <div *ngFor="let image of images">
+    <img [src]="image" class="image">
+  </div>
 </div>

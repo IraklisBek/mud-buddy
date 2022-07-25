@@ -51,7 +51,6 @@ export class UploadFilesComponent implements OnInit {
 
       reader.onload = () => {
         this.images.push(reader.result as string);
-        console.log(this.images)
       };
     }
 
@@ -64,23 +63,25 @@ export class UploadFilesComponent implements OnInit {
   };
 
   uploadRequest(headers: HttpHeaders, endpointExtras: string, formData: FormData, myFile: MyFile) {
-    this.subs.sink = this.http.post(environment.apiUrl + this.postUrl + endpointExtras, formData, {
-      headers: headers,
-      reportProgress: true,
-      observe: 'events'
-    })
-      .subscribe(event => {
-        console.log(event)
-        if (event.type === HttpEventType.UploadProgress) {
-          myFile.progress = Math.round(100 * event.loaded / event.total!);
-        }
-        else if (event.type === HttpEventType.Response) {
-          this.onUploadFinished.emit({ filePath: event.body });
-        } else {
-        }
-      }, err => {
-        console.log(err)
-      });
+    console.log(myFile)
+    this.onUploadFinished.emit({ filePath: myFile.file.name });
+    // this.subs.sink = this.http.post(environment.apiUrl + this.postUrl + endpointExtras, formData, {
+    //   headers: headers,
+    //   reportProgress: true,
+    //   observe: 'events'
+    // })
+    //   .subscribe(event => {
+    //     console.log(event)
+    //     if (event.type === HttpEventType.UploadProgress) {
+    //       myFile.progress = Math.round(100 * event.loaded / event.total!);
+    //     }
+    //     else if (event.type === HttpEventType.Response) {
+    //       this.onUploadFinished.emit({ filePath: event.body });
+    //     } else {
+    //     }
+    //   }, err => {
+    //     console.log(err)
+    //   });
   }
 
 }

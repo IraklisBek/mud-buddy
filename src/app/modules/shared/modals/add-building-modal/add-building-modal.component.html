@@ -9,8 +9,7 @@
 
 <ion-content>
   <form [formGroup]="addBuildingForm" (ngSubmit)="submitForm()" style="height:100%">
-    <app-upload-files></app-upload-files>
-<!-- 
+
     <ion-slides (ionSlideNextStart)="onSlideNext()" (ionSlidePrevStart)="onSlidePrev()" [options]="slideOpts" #slides>
       <ion-slide>
         <div class="input-field">
@@ -33,7 +32,8 @@
           <div class="input-title">
             Please give a short description
           </div>
-          <textarea rows="3" class="input" formControlName="description" placeholder="Description" type="text"></textarea>
+          <textarea rows="3" class="input" formControlName="description" placeholder="Description"
+            type="text"></textarea>
           <div *ngIf="errorControl.description.touched || btnClicked">
             <div *ngIf="errorControl.description.errors?.required" class="error">
               Description is required
@@ -49,8 +49,9 @@
           <div class="input-title">
             Please give a few tags
           </div>
-          <textarea rows="3" class="input" formControlName="tags" placeholder="Tag1, Tag2, Tag3, etc." type="text"></textarea>
-          <div *ngIf="errorControl.tags.touched">
+          <textarea rows="3" class="input" formControlName="tags" placeholder="Tag1, Tag2, Tag3, etc."
+            type="text"></textarea>
+          <div *ngIf="errorControl.tags.touched || btnClicked">
             <div *ngIf="errorControl.tags.errors?.required" class="error">
               Tags are required
             </div>
@@ -62,11 +63,59 @@
       </ion-slide>
       <ion-slide>
         <div class="input-field">
+          <div class="input-title">
+            Please upload some photos
+          </div>
+          <div class="upload-msg">
+            <app-take-photo></app-take-photo>
+            <div>or</div>
+            <app-upload-files (onUploadFinished)="onUploadFinished($event)"></app-upload-files>
+            <div *ngIf="showError" class="error">
+              Photos are required
+            </div>
+          </div>
+
         </div>
-        <div class="my-button main-button" (click)="nextStep('tags')">
-          NEXT
+        <div class="my-button main-button" (click)="nextStep('files')">
+          Next
         </div>
       </ion-slide>
-    </ion-slides> -->
+      <ion-slide>
+        <div class="input-field">
+          <div class="input-title">
+            Please add building location
+          </div>
+          <div class="my-button f-s-24">
+            Use your current location (already saved)
+          </div>
+          <div>
+            or
+          </div>
+          <input type="text" ngx-google-places-autocomplete class="input" placeholder="Type another location"
+            (onAddressChange)="AddressChange($event)" formControlName="location" />
+        </div>
+        <div class="my-button main-button" (click)="nextStep('place')">
+          Upload Building
+        </div>
+      </ion-slide>
+      <ion-slide style="padding-bottom: 0">
+        <div class="added f-f-sc">
+          <div class="f-s-48">
+            MUD BUDDY
+          </div>
+          <div class="f-s-32" style="margin:20px">
+            is happy!!!<br>
+            You just added a <br>
+            new building!
+          </div>
+          <div>
+            <img src="/assets/icons/house.svg" style="width:60px; margin-top:20px;">
+          </div>
+        </div>
+        <div class="my-button white-button abs-bottom-button" (click)="dismiss()">
+          Close
+        </div>
+      </ion-slide>
+    </ion-slides>
   </form>
 </ion-content>

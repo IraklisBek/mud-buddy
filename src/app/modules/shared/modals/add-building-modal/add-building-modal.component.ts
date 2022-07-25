@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { ModalController } from '@ionic/angular';
+import { Building } from 'src/app/core/models/building.model';
 
 @Component({
   selector: 'app-add-building-modal',
@@ -8,21 +11,35 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddBuildingModalComponent implements OnInit {
   @ViewChild('slides', { static: true }) slidesRef: ElementRef;
+  building: Building = {} as Building;
   addBuildingForm: FormGroup = {} as FormGroup
   showError: boolean = false;
   btnClicked: boolean = false;
+  photosUpload: string[] = [];
+  formattedaddress = " ";
+
   public slideOpts = {
     speed: 400
   };
 
-  constructor() { }
+  constructor(
+    private geolocation: Geolocation,
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
+    this.building.photos = [];
+    this.building.tags = [];
     this.initializeFormGroup();
+    this.getUserLocation();
   }
 
   ngAfterViewInit() {
     this.slidesRef.nativeElement.lockSwipes(true);
+  }
+
+  dismiss(){
+    this.modalController.dismiss();
   }
 
   private initializeFormGroup() {
@@ -35,7 +52,19 @@ export class AddBuildingModalComponent implements OnInit {
       }),
       tags: new FormControl(null, {
         validators: [Validators.required]
+      }),
+      location: new FormControl(null, {
+        validators: [Validators.required]
       })
+    });
+  }
+
+  private getUserLocation() {
+    this.geolocation.getCurrentPosition().then((res) => {
+      this.building.lat = res.coords.latitude
+      this.building.lng = res.coords.longitude
+    }).catch((error) => {
+      console.log('Error getting location', error);
     });
   }
 
@@ -49,26 +78,39 @@ export class AddBuildingModalComponent implements OnInit {
     switch (formControl) {
       case 'title':
         if (value.title === null || value.title === '') {
-          this.showError = true;
         } else {
+          this.building.title = value.title
           this.allowNext()
         }
         break;
       case 'description':
         if (value.description === null || value.description === '') {
+        } else {
+          this.building.description = value.description
+          this.allowNext()
+        }
+        break;
+      case 'tags':
+        if (value.tags === null || value.tags === '') {
+        } else {
+          let tagsArray: [] = value.tags.split(",")
+          console.log(tagsArray)
+          tagsArray.forEach(element => {
+            this.building.tags.push(element)
+          });
+          this.allowNext()
+        }
+        break
+      case 'files':
+        if (this.building.photos.length === 0) {
           this.showError = true;
         } else {
           this.allowNext()
         }
         break;
-      case 'tags':
-        if (value.description === null || value.description === '') {
-          this.showError = true;
-        } else {
-          this.allowNext()
-        }
-        break
-      case 'files':
+      case 'place':
+        this.building.address = value.location;
+        this.addBuilding()
         break;
     }
   }
@@ -89,5 +131,25 @@ export class AddBuildingModalComponent implements OnInit {
 
   onSlidePrev() {
 
+  }
+
+  onUploadFinished(event: any) {
+    this.building.photos.push(event.filePath);
+    this.showError = false;
+  }
+
+
+  public AddressChange(address: any) {
+    //setting address from API to local variable 
+    console.log(address)
+    var location = address.geometry.location;
+    this.building.lat = location.lat();
+    this.building.lng = location.lng();
+    this.formattedaddress = address.formatted_address
+  }
+
+  addBuilding() {
+    console.log(this.building)
+    this.allowNext();
   }
 }

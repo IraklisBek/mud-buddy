@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageModule } from './modules/home/home.module';
+import { File } from '@ionic-native/file/ngx';
+import { Camera } from '@ionic-native/Camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +23,10 @@ import { HomePageModule } from './modules/home/home.module';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    Camera,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

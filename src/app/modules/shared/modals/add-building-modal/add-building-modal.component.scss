@@ -1,6 +1,11 @@
 ion-slides {
     min-height: 80%; // so we can swipe with fingers also. by default, the height is as much as the content of the ion-slider
-    height: 80%;
+    max-height: 100%;
+    height: 100%;
+}
+
+ion-slide {
+    padding-bottom: 140px;
 }
 
 .swiper-slide {
@@ -22,3 +27,21 @@ ion-slides {
 // .swiper-zoom-container {
 //     text-align: start; // we do not want it centered, which is by default
 // }
+
+.upload-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.added {
+    height: 100%;
+    width: 100%;
+    background-color: var(--main-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

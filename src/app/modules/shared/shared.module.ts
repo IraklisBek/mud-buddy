@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddBuildingModalComponent } from './modals/add-building-modal/add-building-modal.component';
 import { UploadFilesComponent } from './upload-files/upload-files.component';
+import { TakePhotoComponent } from './take-photo/take-photo.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 
 
@@ -16,19 +19,25 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
     MenuComponent,
     AddBtnComponent,
     AddBuildingModalComponent,
-    UploadFilesComponent
+    UploadFilesComponent,
+    TakePhotoComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GooglePlaceModule
   ],
   exports: [
     HeaderComponent,
     MenuComponent,
     AddBtnComponent,
     AddBuildingModalComponent,
-    UploadFilesComponent
+    UploadFilesComponent,
+    TakePhotoComponent
+  ],
+  providers: [
+    Geolocation
   ]
 })
 export class SharedModule { }
