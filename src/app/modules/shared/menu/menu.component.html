@@ -3,8 +3,8 @@
     <img src="/assets/icons/expand.svg" #expandArrowIcon>
   </div>
   <div class="menu-items" *ngIf="show" [@grow] id="menuItems">
-    <div class="item">LIST</div>
-    <div class="item">MAP</div>
+    <div class="item" (click)="navigate('/tabs/buildings')">LIST</div>
+    <div class="item" (click)="navigate('/tabs/map')">MAP</div>
     <div class="item">EVENTS</div>
     <div class="item">ORGANISATIONS</div>
     <div class="item">LEGISLATION & NORMATIVES</div>

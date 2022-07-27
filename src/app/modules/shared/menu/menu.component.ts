@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { GestureController } from '@ionic/angular';
 import { grow } from 'src/app/core/animations/grow';
 import { GeneralService } from 'src/app/core/services/general.service';
@@ -17,7 +18,8 @@ export class MenuComponent implements OnInit {
   show: boolean = false;
   constructor(
     private generalService: GeneralService,
-    private gestureCtrl: GestureController
+    private gestureCtrl: GestureController,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -56,5 +58,10 @@ export class MenuComponent implements OnInit {
 
   private onMove(detail) {
     console.log(detail)
+  }
+
+  public navigate(to: string){
+    this.toggleMenu()
+    this.router.navigate([to])
   }
 }
