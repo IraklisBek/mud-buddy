@@ -1,0 +1,12 @@
+ion-slides {
+    margin-top: 20px;
+    height: calc(100% - 100px);
+}
+
+ion-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

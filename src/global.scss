@@ -27,7 +27,7 @@
 
 /* Font import */
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Thasadith');
 
 /* Buttons import */
 @import url("../src/assets/css/buttons.scss");
@@ -77,6 +77,10 @@ html, body {
 
 .f-f-sc {
     font-family: "Amatic SC", cursive;
+}
+
+.f-f-th {
+    font-family: 'Thasadith';
 }
 
 .f-s-24 {
