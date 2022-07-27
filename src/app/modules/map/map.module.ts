@@ -8,6 +8,7 @@ import { MapPageRoutingModule } from './map-routing.module';
 
 import { MapPage } from './map.page';
 import { SharedModule } from '../shared/shared.module';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     IonicModule,
     MapPageRoutingModule,
-    SharedModule
+    SharedModule,
+    GoogleMapsModule
   ],
   declarations: [MapPage]
 })

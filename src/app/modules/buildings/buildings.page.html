@@ -1,5 +1,16 @@
 <app-header></app-header>
 <app-menu></app-menu>
 <ion-content>
+    <app-add-btn></app-add-btn>
 
+    <div class="buildings-list">
+        <div *ngFor="let building of buildings" class="building-item">
+            <div class="building-img">
+                <img [src]="building.photos[0]">
+            </div>
+            <div class="building-description">
+                {{building.description}}
+            </div>
+        </div>
+    </div>
 </ion-content>

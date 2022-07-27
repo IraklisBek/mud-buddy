@@ -1,0 +1,27 @@
+.buildings-list {
+    padding: 20px;
+    .building-item {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .building-img {
+            width: 150px;
+            height: 150px;
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .building-description {
+            width: 60%;
+            padding: 0 20px;
+            font-family: "Thasadith";
+            font-size: 20px;
+        }
+    }
+    .building-item:first-child {
+        margin-top: 0;
+    }
+}

@@ -5,17 +5,18 @@ import { Building } from '../models/building.model';
   providedIn: 'root'
 })
 export class BuildingService {
-  
+
   public dummyBuildings: Building[] = [
     {
+      id: 1,
       title: "Building 1",
       description: "This is building 1. This building is a very nice building",
       photos: [
         "/assets/images/ex1.png"
       ],
       tags: [
-        "Tag1", 
-        "Tag2", 
+        "Tag1",
+        "Tag2",
         "Tag3"
       ],
       lng: 24.12312,
@@ -23,14 +24,15 @@ export class BuildingService {
       address: "Kastoria"
     },
     {
+      id: 2,
       title: "Building 2",
       description: "Building 2 is very nice",
       photos: [
         "/assets/images/ex2.png"
       ],
       tags: [
-        "Tag1", 
-        "Tag4", 
+        "Tag1",
+        "Tag4",
         "Tag5"
       ],
       lng: 25.12312,
@@ -38,14 +40,15 @@ export class BuildingService {
       address: "Serres"
     },
     {
+      id: 3,
       title: "Building 3",
       description: "Building 3 could be the best if it was not so old",
       photos: [
         "/assets/images/ex3.png"
       ],
       tags: [
-        "Tag4", 
-        "Tag6", 
+        "Tag4",
+        "Tag6",
         "Tag7"
       ],
       lng: 23.12312,
@@ -53,14 +56,15 @@ export class BuildingService {
       address: "Didimotixo"
     },
     {
+      id: 4,
       title: "Building 4",
       description: "This is building 1. This building is a very nice building",
       photos: [
         "/assets/images/ex4.jpg"
       ],
       tags: [
-        "Tag1", 
-        "Tag2", 
+        "Tag1",
+        "Tag2",
         "Tag3"
       ],
       lng: 20.12312,

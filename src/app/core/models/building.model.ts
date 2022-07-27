@@ -1,4 +1,5 @@
 export interface Building {
+    id?: number;
     title: string,
     description: string,
     photos: string[],
