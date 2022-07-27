@@ -10,6 +10,7 @@ import { UploadFilesComponent } from './upload-files/upload-files.component';
 import { TakePhotoComponent } from './take-photo/take-photo.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { NotAvailableComponent } from './not-available/not-available.component';
 
 
 
@@ -20,7 +21,8 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     AddBtnComponent,
     AddBuildingModalComponent,
     UploadFilesComponent,
-    TakePhotoComponent
+    TakePhotoComponent,
+    NotAvailableComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
     AddBtnComponent,
     AddBuildingModalComponent,
     UploadFilesComponent,
-    TakePhotoComponent
+    TakePhotoComponent,
+    NotAvailableComponent
   ],
   providers: [
     Geolocation
