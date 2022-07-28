@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Building } from 'src/app/core/models/building.model';
 
 @Component({
@@ -8,10 +9,15 @@ import { Building } from 'src/app/core/models/building.model';
 })
 export class BuildingComponent implements OnInit {
   @Input() building: Building = {} as Building;
-  constructor() { }
+  constructor(
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
     console.log(this.building)
   }
 
+  dismiss(){
+    this.modalController.dismiss()
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-not-available',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-available.component.scss'],
 })
 export class NotAvailableComponent implements OnInit {
-
+  @Input() title: string = '';
   constructor() { }
 
   ngOnInit() {}

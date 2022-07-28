@@ -5,8 +5,8 @@
   <div class="menu-items" *ngIf="show" [@grow] id="menuItems">
     <div class="item" (click)="navigate('/tabs/buildings')">LIST</div>
     <div class="item" (click)="navigate('/tabs/map')">MAP</div>
-    <div class="item">EVENTS</div>
-    <div class="item">ORGANISATIONS</div>
-    <div class="item">LEGISLATION & NORMATIVES</div>
+    <div class="item" (click)="navigate('/tabs/events')">EVENTS</div>
+    <div class="item" (click)="navigate('/tabs/organizations')">ORGANISATIONS</div>
+    <div class="item" (click)="navigate('/tabs/legislation-normatives')">LEGISLATION & NORMATIVES</div>
   </div>
 </div>

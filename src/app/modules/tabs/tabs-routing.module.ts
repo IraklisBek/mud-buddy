@@ -31,6 +31,18 @@ const routes: Routes = [
       {
         path: 'inbox',
         loadChildren: () => import('../inbox/inbox.module').then(m => m.InboxPageModule)
+      },
+      {
+        path: 'events',
+        loadChildren: () => import('../events/events.module').then(m => m.EventsPageModule)
+      },
+      {
+        path: 'organizations',
+        loadChildren: () => import('../organizations/organizations.module').then(m => m.OrganizationsPageModule)
+      },
+      {
+        path: 'legislation-normatives',
+        loadChildren: () => import('../legislation-normatives/legislation-normatives.module').then(m => m.LegislationNormativesPageModule)
       }
     ]
   },

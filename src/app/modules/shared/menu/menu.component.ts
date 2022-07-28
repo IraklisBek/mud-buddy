@@ -37,7 +37,7 @@ export class MenuComponent implements OnInit {
   showMenu(show: boolean) {
     let rotateDegrees = show ? -180 : 0;
     this.expandArrowIconRef.nativeElement.style.transform = `rotate(${rotateDegrees}deg)`;
-    this.generalService.growAnimationFullHeightHelper('menuItems', show, 250, 250)
+    this.generalService.growAnimationFullHeightHelper('menuItems', show, 250, 150)
   }
 
   /**

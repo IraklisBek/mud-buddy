@@ -4,7 +4,7 @@
     <app-add-btn></app-add-btn>
 
     <div class="buildings-list">
-        <div *ngFor="let building of buildings" class="building-item">
+        <div *ngFor="let building of buildings" class="building-item" (click)="showBuildingModal(building)">
             <div class="building-img">
                 <img [src]="building.photos[0]">
             </div>

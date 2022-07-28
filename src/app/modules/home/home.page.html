@@ -3,7 +3,7 @@
 <ion-content>
     <app-add-btn></app-add-btn>
     <ion-slides [options]="slideOpts" #slides>
-        <ion-slide *ngFor="let building of buildings">
+        <ion-slide *ngFor="let building of buildings" (click)="showBuildingModal(building)">
             <img [src]="building.photos[0]" style="width:100%; height:80%; object-fit: cover;">
             <div style="margin-top:15px; font-size: 24px;" class="f-f-th">
                 {{building.title}}

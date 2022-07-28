@@ -1,8 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" style="display: block;">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+      <ion-buttons slot="end" style="display: block; margin-right: 10px;" (click)="dismiss()">
+        <ion-icon name="close" style="font-size:30px; color:var(--main-color)"></ion-icon>
+      </ion-buttons>
     <ion-title class="title">{{building.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <div style="padding:15px">
+    <img [src]="building.photos[0]" style="width:100%;">
+  </div>
+</ion-content>

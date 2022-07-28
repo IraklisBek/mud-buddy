@@ -33,7 +33,19 @@ const routes: Routes = [
   {
     path: 'map',
     loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
+  },  {
+    path: 'events',
+    loadChildren: () => import('./modules/events/events.module').then( m => m.EventsPageModule)
+  },
+  {
+    path: 'organizations',
+    loadChildren: () => import('./modules/organizations/organizations.module').then( m => m.OrganizationsPageModule)
+  },
+  {
+    path: 'legislation-normatives',
+    loadChildren: () => import('./modules/legislation-normatives/legislation-normatives.module').then( m => m.LegislationNormativesPageModule)
   }
+
 ];
 @NgModule({
   imports: [
