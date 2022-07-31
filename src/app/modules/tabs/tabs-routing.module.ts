@@ -43,6 +43,10 @@ const routes: Routes = [
       {
         path: 'legislation-normatives',
         loadChildren: () => import('../legislation-normatives/legislation-normatives.module').then(m => m.LegislationNormativesPageModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
       }
     ]
   },

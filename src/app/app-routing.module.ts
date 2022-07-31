@@ -33,7 +33,8 @@ const routes: Routes = [
   {
     path: 'map',
     loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)
-  },  {
+  },
+  {
     path: 'events',
     loadChildren: () => import('./modules/events/events.module').then( m => m.EventsPageModule)
   },
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'legislation-normatives',
     loadChildren: () => import('./modules/legislation-normatives/legislation-normatives.module').then( m => m.LegislationNormativesPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then( m => m.ProfilePageModule)
   }
 
 ];

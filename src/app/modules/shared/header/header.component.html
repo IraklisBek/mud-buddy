@@ -3,7 +3,7 @@
     <ion-title>
       <div class="header">
         <div class="title" (click)="navigateTo('/tabs/home')">MUD BUDDY</div>
-        <img src="/assets/icons/profile.svg">
+        <img [src]="profileImg" (click)="navigateTo('tabs/profile')">
       </div>
     </ion-title>
   </ion-toolbar>
