@@ -1,11 +1,12 @@
+import { Position } from "./map.model";
+
 export interface Building {
     id?: number,
     title: string,
     description: string,
     photos: string[],
     tags: Tag[],
-    lng: number,
-    lat: number,
+    position: Position,
     address?: string,
 }
 

@@ -50,8 +50,8 @@ export class MapPage implements OnInit {
     for (let building of this.buildings) {
       let marker: Marker = {
         position: {
-          lat: building.lat,
-          lng: building.lng,
+          lat: building.position.lat,
+          lng: building.position.lng,
         },
         label: {
           color: 'red',
@@ -65,7 +65,7 @@ export class MapPage implements OnInit {
   }
 
   openInfo(marker: MapMarker, content: string) {
-    let building = this.buildings.find((el: Building) => el.lat === marker.marker.getPosition().lat() && el.lng === marker.marker.getPosition().lng());
+    let building = this.buildings.find((el: Building) => el.position.lat === marker.marker.getPosition().lat() && el.position.lng === marker.marker.getPosition().lng());
     this.showBuildingModal(building);
   }
 

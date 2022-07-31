@@ -45,8 +45,10 @@ export class BuildingService {
         this.dummyTags[0],
         this.dummyTags[1]
       ],
-      lng: 24.12312,
-      lat: 32.23123,
+      position: {
+        lng: 24.12312,
+        lat: 32.23123,
+      },
       address: "Kastoria"
     },
     {
@@ -60,8 +62,10 @@ export class BuildingService {
         this.dummyTags[1],
         this.dummyTags[2]
       ],
-      lng: 25.12312,
-      lat: 34.23123,
+      position: {
+        lng: 25.12312,
+        lat: 34.23123,
+      },
       address: "Serres"
     },
     {
@@ -75,8 +79,10 @@ export class BuildingService {
         this.dummyTags[3],
         this.dummyTags[4]
       ],
-      lng: 23.12312,
-      lat: 32.23123,
+      position: {
+        lng: 23.12312,
+        lat: 32.23123,
+      },
       address: "Didimotixo"
     },
     {
@@ -89,8 +95,10 @@ export class BuildingService {
       tags: [
         this.dummyTags[5]
       ],
-      lng: 20.12312,
-      lat: 31.23123,
+      position: {
+        lng: 20.12312,
+        lat: 31.23123,
+      },
       address: "Kapou"
     }
   ]

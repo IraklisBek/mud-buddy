@@ -68,8 +68,10 @@ export class AddBuildingModalComponent implements OnInit {
         lat: res.coords.latitude,
         lng: res.coords.longitude
       };
-      this.building.lat = res.coords.latitude
-      this.building.lng = res.coords.longitude
+      this.building.position = { 
+        lat: res.coords.latitude, 
+        lng: res.coords.longitude
+      };
     }).catch((error) => {
       console.log('Error getting location', error);
     });
@@ -145,16 +147,20 @@ export class AddBuildingModalComponent implements OnInit {
   }
 
   locationPosition() {
-    this.building.lat = this.userPosition.lat;
-    this.building.lng = this.userPosition.lng;
+    this.building.position = { 
+      lat: this.userPosition.lat, 
+      lng: this.userPosition.lng
+    };
     this.addBuilding()
 
     // this.toastr.success("Building has been uploaded using your current position")
   }
 
   onPinPositionChanged(event: { position: Position }) {
-    this.building.lat = event.position.lat;
-    this.building.lng = event.position.lng;
+    this.building.position = { 
+      lat: event.position.lat, 
+      lng: event.position.lng
+    };
     console.log(this.building)
   }
 
@@ -168,8 +174,10 @@ export class AddBuildingModalComponent implements OnInit {
     //setting address from API to local variable 
     console.log(address)
     var location = address.geometry.location;
-    this.building.lat = location.lat();
-    this.building.lng = location.lng();
+    this.building.position = { 
+      lat: location.lat(), 
+      lng: location.lng() 
+    };
     this.formattedaddress = address.formatted_address
   }
 
