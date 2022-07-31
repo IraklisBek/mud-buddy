@@ -1,10 +1,37 @@
 import { Injectable } from '@angular/core';
-import { Building } from '../models/building.model';
+import { Building, Tag } from '../models/building.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuildingService {
+
+  public dummyTags: Tag[] = [
+    {
+      id: 1,
+      title: "Tag1"
+    },
+    {
+      id: 2,
+      title: "Tag2"
+    },
+    {
+      id: 3,
+      title: "Tag3"
+    },
+    {
+      id: 4,
+      title: "Tag4"
+    },
+    {
+      id: 5,
+      title: "Tag5"
+    },
+    {
+      id: 6,
+      title: "Tag6"
+    }
+  ]
 
   public dummyBuildings: Building[] = [
     {
@@ -15,9 +42,8 @@ export class BuildingService {
         "/assets/images/ex1.png"
       ],
       tags: [
-        "Tag1",
-        "Tag2",
-        "Tag3"
+        this.dummyTags[0],
+        this.dummyTags[1]
       ],
       lng: 24.12312,
       lat: 32.23123,
@@ -31,9 +57,8 @@ export class BuildingService {
         "/assets/images/ex2.png"
       ],
       tags: [
-        "Tag1",
-        "Tag4",
-        "Tag5"
+        this.dummyTags[1],
+        this.dummyTags[2]
       ],
       lng: 25.12312,
       lat: 34.23123,
@@ -47,9 +72,8 @@ export class BuildingService {
         "/assets/images/ex3.png"
       ],
       tags: [
-        "Tag4",
-        "Tag6",
-        "Tag7"
+        this.dummyTags[3],
+        this.dummyTags[4]
       ],
       lng: 23.12312,
       lat: 32.23123,
@@ -63,9 +87,7 @@ export class BuildingService {
         "/assets/images/ex4.jpg"
       ],
       tags: [
-        "Tag1",
-        "Tag2",
-        "Tag3"
+        this.dummyTags[5]
       ],
       lng: 20.12312,
       lat: 31.23123,

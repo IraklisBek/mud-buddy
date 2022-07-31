@@ -58,15 +58,11 @@ export class MapPage implements OnInit {
           text: building.title,
         },
         title: building.title,
-        // options: { animation: google.maps.Animation.BOUNCE },
+        options: { animation: -1 },
       }
       this.markers.push(marker)
     }
   }
-
-  @ViewChild(MapInfoWindow, { static: false })
-  info!: MapInfoWindow;
-  infoContent = '';
 
   openInfo(marker: MapMarker, content: string) {
     let building = this.buildings.find((el: Building) => el.lat === marker.marker.getPosition().lat() && el.lng === marker.marker.getPosition().lng());

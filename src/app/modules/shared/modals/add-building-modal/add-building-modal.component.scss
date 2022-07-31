@@ -28,7 +28,7 @@ ion-slide {
 //     text-align: start; // we do not want it centered, which is by default
 // }
 
-.upload-msg {
+.upload-msg, .location-use {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,4 +44,10 @@ ion-slide {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.location-use {
+    padding: 20px;
+    font-family: 'Thasadith';
+
 }

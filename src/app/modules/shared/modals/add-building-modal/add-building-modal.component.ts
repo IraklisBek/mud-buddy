@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { ModalController } from '@ionic/angular';
 import { Building } from 'src/app/core/models/building.model';
+import { Position } from 'src/app/core/models/map.model';
 
 @Component({
   selector: 'app-add-building-modal',
@@ -11,9 +12,11 @@ import { Building } from 'src/app/core/models/building.model';
 })
 export class AddBuildingModalComponent implements OnInit {
   @ViewChild('slides', { static: true }) slidesRef: ElementRef;
+  userPosition: Position = {} as Position;
   building: Building = {} as Building;
   addBuildingForm: FormGroup = {} as FormGroup
   showError: boolean = false;
+  showDropPin: boolean = false;
   btnClicked: boolean = false;
   photosUpload: string[] = [];
   formattedaddress = " ";
@@ -24,7 +27,7 @@ export class AddBuildingModalComponent implements OnInit {
 
   constructor(
     private geolocation: Geolocation,
-    private modalController: ModalController
+    private modalController: ModalController,
   ) { }
 
   ngOnInit() {
@@ -38,7 +41,7 @@ export class AddBuildingModalComponent implements OnInit {
     this.slidesRef.nativeElement.lockSwipes(true);
   }
 
-  dismiss(){
+  dismiss() {
     this.modalController.dismiss();
   }
 
@@ -61,6 +64,10 @@ export class AddBuildingModalComponent implements OnInit {
 
   private getUserLocation() {
     this.geolocation.getCurrentPosition().then((res) => {
+      this.userPosition = {
+        lat: res.coords.latitude,
+        lng: res.coords.longitude
+      };
       this.building.lat = res.coords.latitude
       this.building.lng = res.coords.longitude
     }).catch((error) => {
@@ -109,7 +116,7 @@ export class AddBuildingModalComponent implements OnInit {
         }
         break;
       case 'place':
-        this.building.address = value.location;
+        // this.building.address = value.location;
         this.addBuilding()
         break;
     }
@@ -125,12 +132,30 @@ export class AddBuildingModalComponent implements OnInit {
     this.btnClicked = false;
   }
 
+  toggleDropPin() {
+    this.showDropPin = !this.showDropPin
+  }
+
   prevStep() {
     this.slidesRef.nativeElement.slidePrev();
   }
 
   onSlidePrev() {
 
+  }
+
+  locationPosition() {
+    this.building.lat = this.userPosition.lat;
+    this.building.lng = this.userPosition.lng;
+    this.addBuilding()
+
+    // this.toastr.success("Building has been uploaded using your current position")
+  }
+
+  onPinPositionChanged(event: { position: Position }) {
+    this.building.lat = event.position.lat;
+    this.building.lng = event.position.lng;
+    console.log(this.building)
   }
 
   onUploadFinished(event: any) {

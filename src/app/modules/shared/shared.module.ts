@@ -11,6 +11,8 @@ import { TakePhotoComponent } from './take-photo/take-photo.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { NotAvailableComponent } from './not-available/not-available.component';
+import { DropPinComponent } from './drop-pin/drop-pin.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -22,13 +24,15 @@ import { NotAvailableComponent } from './not-available/not-available.component';
     AddBuildingModalComponent,
     UploadFilesComponent,
     TakePhotoComponent,
-    NotAvailableComponent
+    NotAvailableComponent,
+    DropPinComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    GoogleMapsModule
   ],
   exports: [
     HeaderComponent,
@@ -37,7 +41,8 @@ import { NotAvailableComponent } from './not-available/not-available.component';
     AddBuildingModalComponent,
     UploadFilesComponent,
     TakePhotoComponent,
-    NotAvailableComponent
+    NotAvailableComponent,
+    DropPinComponent
   ],
   providers: [
     Geolocation

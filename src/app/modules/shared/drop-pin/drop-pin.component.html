@@ -1,0 +1,4 @@
+<google-map #map (boundsChanged)="onMapDrag(map)" class="drop-pin-map" [center]="center" [options]="options">
+  <map-marker [position]="markerPosition" [label]="marker.label" [options]="marker.options">
+  </map-marker>
+</google-map>

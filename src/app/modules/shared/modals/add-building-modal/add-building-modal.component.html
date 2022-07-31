@@ -81,7 +81,7 @@
         </div>
       </ion-slide>
       <ion-slide>
-        <div class="input-field">
+        <!-- <div class="input-field">
           <div class="input-title">
             Please add building location
           </div>
@@ -96,6 +96,23 @@
         </div>
         <div class="my-button main-button" (click)="nextStep('place')">
           Upload Building
+        </div> -->
+        <div *ngIf="!showDropPin" class="location-use">
+          <div class="f-s-24">
+            Do you allow Mud Buddy to use your location?
+          </div>
+          <div class="my-button main-button radius-button" style="margin-top: 10px; width:150px" (click)="locationPosition()">
+            Yes, I do
+          </div>
+          <div class="f-s-24 abs-bottom" (click)="toggleDropPin()">
+            Otherwise, <span class="main-link-button">Drop a pin</span> 
+          </div>
+        </div>
+        <div *ngIf="showDropPin">
+          <app-drop-pin (pinPositionChanged)="onPinPositionChanged($event)"></app-drop-pin>
+          <div class="my-button main-button abs-bottom radius-button" style="width:150px; left: calc(50% - 90px)" (click)="nextStep('place')">
+            Drop pin!
+          </div>
         </div>
       </ion-slide>
       <ion-slide style="padding-bottom: 0">
@@ -117,5 +134,6 @@
         </div>
       </ion-slide>
     </ion-slides>
+
   </form>
 </ion-content>

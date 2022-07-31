@@ -1,12 +1,14 @@
 export interface Marker {
-    position: {
-        lat: number,
-        lng: number,
-    },
+    position: Position,
     label: {
         color: 'red',
         text: string,
     },
     title: string,
-    // options: { animation: google.maps.Animation.BOUNCE },
+    options: { animation: number },
+}
+
+export interface Position {
+    lat: number,
+    lng: number,
 }
