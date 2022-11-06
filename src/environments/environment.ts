@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: ''
+  apiUrl: '',
+  verboseLogging: true,
+  WHITE_LIST_EXCEPTIONS: []
 };
 
 /*
